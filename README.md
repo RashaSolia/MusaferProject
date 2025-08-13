@@ -1,3 +1,24 @@
+# ✈ Musafer Project
+
+**Musafer** is a platform that connects **travelers** with **residents** in their destination country.  
+The idea is simple: when a traveler has extra space in their luggage, they can help carry items requested by residents — saving time, reducing shipping costs, and fostering community connections.
+
+---
+
+## 🎯 Project Idea
+- A **resident** can post a request for an item they need from another country.
+- A **traveler** can check available requests for their destination and offer to carry the item if they have space in their luggage.
+- Both parties can communicate through the platform to arrange delivery.
+
+---
+
+## 🚀 Features
+- 👤 **User Roles:** Traveler / Resident.
+- 📦 **Request Posting:** Residents can add item details, size, and weight.
+- 🧳 **Luggage Space Matching:** Travelers can see requests that match their available space.
+- 💬 **Messaging System:** Built-in chat for easy coordination.
+- 📱 **Responsive Design:** Works on desktop, tablet, and mobile.
+
 # GPWEB
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
