@@ -1,0 +1,139 @@
+*{
+    padding: 0px;
+    margin: 0px;
+box-sizing: border-box;
+}
+.smallTxt{
+    color: #909090;
+    font-size: 15px;
+}
+.bigTxt{
+    font-size: 25px;
+}
+.addBtn{
+    background-color: #007DFA;
+    color: white;
+}
+.filterBtn{
+  border-color: #007DFA;
+  color: #007DFA;
+}
+.sendBtn{
+    background-color: #050A24;
+    color: white;  
+}
+.starIcon i{
+    color: #FFD700;
+}
+
+.boxShadow{
+    box-shadow: 1.5px 1.5px 1px 1.5px #F8F8F8;
+    background-color: white;
+
+}
+.custom-swal-button {
+    background-color: #007DFA; /* Change to your desired color */
+    border-color: #007DFA; /* Change to your desired color */
+    color: #fff; /* Text color */
+  }
+  
+ 
+
+.form-select:focus {
+    border-color: #BEBEBF;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem transparent;
+}
+
+.form-select-lg {
+ 
+    font-size: 17px !important;
+ }
+
+
+ 
+ .LabelGrey{
+    font-size: 16px;
+    color:  #BEBEBF;
+ }
+
+ option {
+    font-weight: normal;
+    display: block;
+    min-height: 1.5em;
+    padding: 0px 2px 1px;
+    white-space: nowrap;
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #BEBEBF;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem transparent;
+}
+
+
+
+.modal-body a{
+    cursor: pointer;
+}
+
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+// /* في ملف الأنماط (styles.css أو styles.scss) */
+// .theme-dark-blue .datepicker.dropdown-menu {
+//     background-color: transparent; /* لون الخلفية */
+//     color: #ffffff; /* لون النص */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-link {
+//     color: #ffffff; /* لون رموز الأشهر والسنوات */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-link:hover {
+//     color: #ffffff; /* لون رموز الأشهر والسنوات عند التحويم */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-link.disabled {
+//     color: #808080; /* لون رموز الأشهر والسنوات عند التعطيل */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-secondary {
+//     background-color: #007DFA; /* لون زر الشهر الحالي */
+//     border-color: #007DFA; /* لون حدود زر الشهر الحالي */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-secondary:hover {
+//     background-color: #007DFA; /* لون زر الشهر عند التحويم */
+//     border-color: #007DFA; /* لون حدود زر الشهر عند التحويم */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-secondary.disabled {
+//     background-color: #c0c0c0; /* لون زر الشهر عند التعطيل */
+//     border-color: #c0c0c0; /* لون حدود زر الشهر عند التعطيل */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-success {
+//     background-color: #28a745; /* لون زر التاريخ الحالي */
+//     border-color: #28a745; /* لون حدود زر التاريخ الحالي */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-success:hover {
+//     background-color: #218838; /* لون زر التاريخ عند التحويم */
+//     border-color: #218838; /* لون حدود زر التاريخ عند التحويم */
+//   }
+  
+//   .theme-dark-blue .datepicker .btn-success.disabled {
+//     background-color: #d1e7dd; /* لون زر التاريخ عند التعطيل */
+//     border-color: #d1e7dd; /* لون حدود زر التاريخ عند التعطيل */
+//   }
+  

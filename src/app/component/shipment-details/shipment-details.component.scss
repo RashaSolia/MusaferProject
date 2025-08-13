@@ -1,0 +1,20 @@
+*{
+    padding: 0px;
+    margin: 0px;
+box-sizing: border-box;
+}
+
+.Main_Tittle{
+    background: rgb(0,105,213);
+    background: linear-gradient(0deg, rgba(0,105,213,1) 0%, rgba(55,78,116,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 span {
+    color: black !important;
+}
+.addBtn{
+    background-color: #007DFA;
+    color: white;
+}

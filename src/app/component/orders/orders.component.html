@@ -1,0 +1,352 @@
+<div class="row m-0 ">
+    <div class="col-md-2">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-md-9 py-2  px-5  ">
+  <app-search></app-search>
+ <div class="d-flex justify-content-between align-items-center py-5">
+  <div> <p class="bigTxt fw-bold"> All orders</p></div>
+<div>
+<button class="btn  addBtn py-1 px-4 mx-3 rounded-pill"   (click)="open(content)">Add Order</button>
+<button class="btn  filterBtn py-1 px-4 mx-3 rounded-pill"> <i class="fa-solid fa-arrow-up-wide-short"></i> Filter</button>
+</div>
+ </div>
+
+ 
+<div class="row justify-content-between">
+  <div class="col-md-5  p-2 boxShadow mb-5" *ngFor="let data of gettrip">
+<h2>
+trip
+</h2>
+<div class="d-flex justify-content-between align-items-center  py-3">
+<div>
+<div class="d-flex">
+  <img src="../../../assets/Group 1000000746.png" alt="">
+  <div class="d-flex flex-column px-2 text-center">
+    <p class=" fw-medium" >{{data.userName}}</p>
+  
+  </div>
+</div>
+<div class=" p-3 ">
+  <p> <span class=" fw-medium">From :</span>  {{data.fromCityName}}</p>
+  <p><span class=" fw-medium">To :</span> {{data.toCityName}}</p>
+  <p> <span class=" fw-medium">Arrival date : </span>  {{data.arrivalTime | date : 'dd/MM/yyyy' }}</p>
+  <p><span class=" fw-medium">Kg Free : </span>  {{data.availableKg}}</p>
+</div>
+</div>
+
+
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <button class="btn  sendBtn py-1 px-4 my-5 rounded-pill"  >Send request</button>
+
+</div>
+</div>
+
+
+  </div>
+        
+</div>
+
+<div class="row justify-content-between">
+ 
+<div class="col-md-5  p-2 boxShadow mb-5" *ngFor="let data of getShipment">
+  <h2>
+  Shipment
+  </h2>
+  <div class="d-flex justify-content-between align-items-center  py-3">
+  <div>
+    <div class="d-flex">
+      <img src="../../../assets/Group 1000000746.png" alt="">
+      <div class="d-flex flex-column px-2 text-center">
+        <p class=" fw-medium" >{{data.userName}}</p>
+      
+      </div>
+    </div>
+  <div class="   ">
+    <div class="p-3">
+      <p><span class=" fw-medium">From:</span>  {{data.fromCityName}}</p>
+      <p><span class=" fw-medium"> To:</span> To: {{data.toCityName}}</p>
+      <p><span class=" fw-medium"> Date Of Recieving:</span>{{ data.dateOfRecieving | date: 'dd/MM/yyyy' }}</p>
+      <p><span class=" fw-medium">Reward: </span> {{data.reward}}</p>
+    </div>
+  </div>
+  </div>
+  
+  
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <img [src]="data.pictureUrl " class="  w-50" alt="">
+
+  <button class="btn  sendBtn py-1 px-4 my-5 rounded-pill" [routerLink]="['/shipmentDetails',data.id]">See More Details</button>
+  
+  </div>
+  </div>
+  
+  
+    </div>
+
+</div>
+
+
+
+    </div>
+        </div>
+
+
+
+        <!--  el pop Up of order and Shipment-->
+ 
+<ng-template #content let-c="close" let-d="dismiss">
+
+
+  <div class="modal-header p-4">
+    <p class="modal-title fw-bold" id="modal-basic-title" style="font-size: 20px;">Account verification </p>
+    <button type="button" class="border-0 bg-transparent">
+      <i class="fa-solid fa-circle-xmark" (click)="c('Cross click')" style="font-size: 18px;"></i>
+    </button>
+  </div>
+
+  <div class="modal-body p-4">
+   
+<form action="" [formGroup]="AccountVerificationForm" (ngSubmit)="Verification()" enctype="multipart/form-data">
+  <div class="image">
+    <label for="image1" class="  rounded my-3 w-75 p-3 text-center"  style="background-color: rgb(235,237,240);"> <i class="fa-solid fa-cloud-arrow-up text-black px-2"></i> Upload Your Passport</label>
+    <input id="image1" class="form-control  inputfile my-3 w-75 p-1 custom-file-input " type="file" (change)="onFileSelected2($event, 'image1')" accept="image/*">
+  </div>
+
+ 
+
+
+  <button class="btn  my-3 w-75 p-3 custom-file-input" style="background-color: rgb(235,237,240);"> <i class="fa-solid fa-camera text-black px-2"></i> OPen  Your Camera </button>
+
+  <p class="note text-danger  py-2  m-3">Please note that clicking "OPen  Your Camera" will open the camera for comparison.</p>
+
+</form>
+    
+
+<div id="successMessage" style="display: none;">
+  <p class="text-success text-center fw-bold"> Matched Successfully</p>
+</div>
+
+<div id="errorMessage" style="display: none;">
+  <p class="text-danger text-center fw-bold">IT Doesn't Match</p>
+</div>
+
+        </div>
+  <div class="modal-footer">
+  
+    <button class="btn addBtn py-2 px-5 m-3 rounded-pill"  (click)="openSecondModal(secondModalContent)">Continue</button>
+
+    <ng-template #secondModalContent let-c="close" let-d="dismiss">
+      <div class="modal-header p-4 ">
+        <p class="modal-title fw-bold" id="modal-basic-title" style="font-size: 20px;">Add Order</p>
+        <button type="button" class="border-0 bg-transparent">
+     <i class="fa-solid fa-circle-xmark" (click)="c('Cross click')" style="font-size: 18px;"></i> 
+        </button>
+    
+      </div>
+      <div class="modal-body p-4">
+        <div class="SelectType">
+              
+         <label for="" class="fw-medium" style="font-size: 16px;">Select Type</label>
+         <select class="form-select form-select-lg my-3 p-2 bg-light" aria-label=".form-select-lg example" [(ngModel)]="selectedOption" (change)="onOptionChange()">
+           <option value="1" selected>Trip</option>
+           <option value="2">Shipment</option>
+         </select>
+         
+        </div>
+         <div *ngIf="selectedOption === '1'">  
+           <form action="" [formGroup]="Tripform" (ngSubmit)="createTrip(Tripform)" >
+       
+             <div class="from">
+               <label for="" class="LabelGrey" > From: </label>
+       
+                
+             
+               <div class="d-flex justify-content-center align-items-center">
+                 <select class="form-select form-select-lg my-3 p-2" formControlName="countryNameFrom" aria-label=".form-select-lg example">
+                   <option value="" disabled selected>Select Country</option>
+                   <option *ngFor="let data of cityarr" [value]="data.countryName">{{ data.countryName }}</option>
+                 </select>
+             
+                  <select class="form-select form-select-lg m-3 p-2" formControlName="fromCityName" aria-label=".form-select-lg example">
+                   <option value="" disabled selected>Select City</option>
+                   <option *ngFor="let data of cityarr" [value]="data.cityName">{{ data.cityName }}</option>
+                 </select>
+               </div>
+             </div>
+             
+             
+             <div class="To">
+             
+               <label for=""  class="LabelGrey"> To: </label>
+             
+               <div class="d-flex justify-content-center align-items-center">
+                 <select class="form-select form-select-lg my-3 p-2" formControlName="countryNameTo" aria-label=".form-select-lg example">
+                   <option *ngFor="let data of cityarr" [value]="data.countryName">{{ data.countryName }}</option>
+                 </select>
+                 
+             
+                 <select class="form-select form-select-lg m-3 p-2" formControlName="toCityName" aria-label=".form-select-lg example">
+                   <option *ngFor="let data of cityarr" [value]="data.cityName">{{ data.cityName }}</option>
+                 </select>
+               </div>
+             </div>
+             
+             <label for="" class="LabelGrey">Arrival Time:</label>
+             <!-- <input class="form-control form-control-lg my-3 w-50 p-2" formControlName="arrivalTime" style="font-size: 17px;" -->
+                    <!-- type="date" bsDatepicker> -->
+                    <input type="date" class="form-control form-control-lg my-3 w-50 p-2" placeholder="Select date"   formControlName="arrivalTime">
+                    <!-- <div *ngIf="selectedDate.invalid && selectedDate.errors.pastDate" class="text-danger">Please select a future date.</div> -->
+                    <div [hidden]="!isDateInvalid" class="text-danger">Invalid date, please select a date in the future</div>
+
+           
+             <label for=""  class="LabelGrey"> Available Kg: </label>
+             
+             <input class="form-control form-control-lg my-3 w-50 p-2"  formControlName="availableKg" >
+        
+             <div *ngIf="Tripform.get('availableKg')?.errors&&Tripform.get('availableKg')?.touched" class="text-danger">
+              <p *ngIf="Tripform.get('availableKg')?.getError('max')">Weight must not exceed 15 kilograms</p>
+             </div>
+             <button class="btn addBtn py-2 px-5 m-3 rounded-pill" type="submit" [disabled]="Tripform.invalid">done</button>
+ 
+           </form>
+           <div id="successMessage" style="display: none;">
+            <p class="text-success text-center fw-bold"> Trip Created Successfully</p>
+          </div>
+
+          <div id="errorMessage" style="display: none;">
+            <p class="text-danger text-center fw-bold">Failed to create it</p>
+          </div>
+         </div>
+           
+         <div *ngIf="selectedOption === '2'">
+           
+        
+           <form action="" [formGroup]="Shipmentform" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+             <div class="Category">
+               <label for="" class="LabelGrey">Category:</label>
+               <select class="form-select form-select-lg my-3 p-2 w-50" aria-label=".form-select-lg example" formControlName="categoryName">
+                 <option *ngFor="let data of categoreyarr" [value]="data.categoryName">{{data.categoryName}}</option>
+               </select>
+             </div>
+             <div class="from">
+               <label for="" class="LabelGrey">From:</label>
+               <div class="d-flex justify-content-center align-items-center">
+                 <select class="form-select form-select-lg my-3 p-2" formControlName="countryNameFrom" aria-label=".form-select-lg example">
+                   <option value="" disabled selected>Country</option>
+                   <option *ngFor="let data of cityarr" [value]="data.countryName">{{ data.countryName }}</option>
+                 </select>
+                 <select class="form-select form-select-lg m-3 p-2" formControlName="fromCityName" aria-label=".form-select-lg example">
+                   <option value="" disabled selected>Select City</option>
+                   <option *ngFor="let data of cityarr" [value]="data.cityName">{{ data.cityName }}</option>
+                 </select>
+               </div>
+             </div>
+             <div class="To">
+               <label for="" class="LabelGrey">To:</label>
+               <div class="d-flex justify-content-center align-items-center">
+                 <select class="form-select form-select-lg my-3 p-2" formControlName="countryNameTo" aria-label=".form-select-lg example">
+                   <option *ngFor="let data of cityarr" [value]="data.countryName">{{ data.countryName }}</option>
+                 </select>
+                 <select class="form-select form-select-lg m-3 p-2" formControlName="toCityName" aria-label=".form-select-lg example">
+                   <option *ngFor="let data of cityarr" [value]="data.cityName">{{ data.cityName }}</option>
+                 </select>
+               </div>
+             </div>
+             <div class="ShipmentInfo">
+               <label for="" class="LabelGrey">Shipment Information:</label>
+               <div class="d-flex justify-content-center align-items-center">
+                 <input class="form-control form-control-lg my-3 w-50 p-2 fw-medium" type="number" placeholder="Weight"    style="font-size: 16px;" formControlName="productWeight">
+                 <input class="form-control form-control-lg m-3 w-50 p-2 fw-medium" type="text" placeholder="Price" style="font-size: 16px;" formControlName="productPrice">
+               </div>
+               <div *ngIf="Shipmentform.get('productWeight')?.errors&&Shipmentform.get('productWeight')?.touched" class="text-danger">
+                <p *ngIf="Shipmentform.get('productWeight')?.getError('max')">Weight must not exceed 15 kilograms</p>
+               </div>
+               <input class="form-control form-control-lg my-3 w-75 p-2 fw-medium" type="text" placeholder="Description" style="font-size: 16px;" formControlName="productName">
+             </div>
+       
+         <div class="totalWeight">
+               <label for="" class="LabelGrey">Total Weight</label>
+               <input class="form-control form-control-lg my-3 w-50 p-2 fw-medium" type="number" placeholder="weight" style="font-size: 16px;" formControlName="weight">
+             </div>
+             <div *ngIf="Shipmentform.get('weight')?.errors&&Shipmentform.get('weight')?.touched" class="text-danger">
+               <p *ngIf="Shipmentform.get('weight')?.getError('max')">Weight must not exceed 15 kilograms</p>
+              </div>
+             <div class="reward">
+              <label for="reward" class="LabelGrey">Reward:</label>
+              <div class="input-group">
+                <input id="reward" 
+                       class="form-control form-control-lg my-3 w-75 p-1 fw-medium"  
+                       formControlName="reward" 
+                       placeholder="Enter reward amount">
+                <span class="input-group-text  my-3   p-2 fw-bold">$</span> <!-- Display currency symbol next to input -->
+              </div>
+              
+          </div>
+          
+          
+             <div class="dateOfRecieving">
+               <label for="" class="LabelGrey">Date Of Recieving:</label>
+               <input class="form-control form-control-lg my-3 w-75 p-1 fw-medium" type="date" formControlName="dateOfRecieving">
+             </div>
+             <div class="address">
+               <label for="" class="LabelGrey">Enter your Address:</label>
+               <input class="form-control form-control-lg my-3 w-75 p-1 fw-medium" type="text" formControlName="address">
+             </div>
+             <!-- <div class="image">
+               <label for="image" class="LabelGrey" >Enter your Product image:</label>
+               <input class="form-control form-control-lg my-3 w-75 p-1 " type="file" formControlName="image" accept="image/*">
+             </div> -->
+             <div class="image">
+               <label for="image" class="LabelGrey">Enter your Product image:</label>
+               <input class="form-control form-control-lg my-3 w-75 p-1" type="file" (change)="onFileSelected($event)" accept="image/*">
+             </div>
+             <button class="btn addBtn py-2 px-5 m-3 rounded-pill" type="submit" [disabled]="Shipmentform.invalid">done</button>
+           </form>
+
+           
+           <div id="successMessage" style="display: none;">
+            <p class="text-success text-center fw-bold"> Shipment Created Successfully</p>
+          </div>
+
+          <div id="errorMessage" style="display: none;">
+            <p class="text-danger text-center fw-bold">Failed to create it</p>
+          </div>
+          
+          
+             </div>
+        
+         
+         
+         </div>
+         
+       
+      <div class="modal-footer">
+   
+<!-- <button class="btn addBtn py-2 px-5 m-3 rounded-pill"  (click)="c('Cross click')" >done</button> -->
+
+      </div>
+    </ng-template>
+  </div>
+</ng-template>
+
+
+<!-- <div class="d-flex justify-content-center align-items-center flex-column bg-info">
+
+<form action="" [formGroup]="AccountVerificationForm" (ngSubmit)="Verification()" enctype="multipart/form-data">
+    <div class="image">
+      <label for="image1" class="LabelGrey">Upload Your Passport:</label>
+      <input id="image1" class="form-control form-control-lg my-3 w-75 p-1" type="file" (change)="onFileSelected2($event, 'image1')" accept="image/*">
+    </div>
+
+    <div class="image">
+      <label for="image2" class="LabelGrey">Click to open your camera:</label>
+      <input id="cameraInput" type="file" class="form-control form-control-lg my-3 w-75 p-1" accept="image/*" capture (change)="onFileSelected2($event, 'image2')"  >
+    </div> 
+
+
+  <button type="submit" class=" bg-danger">submit </button>
+</form>
+</div> -->
+
+

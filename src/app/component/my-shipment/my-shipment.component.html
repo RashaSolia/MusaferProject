@@ -1,0 +1,92 @@
+<!-- <div class="row m-0 ">
+    <div class="col-md-2">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-md-9 py-2  px-5  ">
+  <app-search></app-search>
+ <div class="d-flex justify-content-between align-items-center py-5">
+  <!-- <div> <p class="bigTxt fw-bold"> All deals</p></div> -->
+<!-- <div>
+
+<button class="btn  filterBtn py-1 px-4 mx-3 rounded-pill"> <i class="fa-solid fa-arrow-up-wide-short"></i> Filter</button>
+</div>
+ </div>
+
+ <div class="row justify-content-between">
+  <div class="col-md-5 p-2 boxShadow mb-5" *ngFor="let data of getshipment">
+    <div *ngIf="message && data.userName === message">
+      <h2>Shipment</h2>
+      <div class="d-flex justify-content-between align-items-center py-3">
+        <div>
+          <div class="d-flex">
+            <img src="../../../assets/Group 1000000746.png" alt="">
+            <div class="d-flex flex-column px-2 text-center">
+              <p class="fw-medium">{{data.userName}}</p>
+            </div>
+          </div>
+          <div class="p-3">
+            <p>From: {{data.fromCityName}}</p>
+            <p>To: {{data.toCityName}}</p>
+            <p>Date Of Recieving: {{ data.dateOfRecieving | date: 'dd/MM/yyyy' }}</p>
+            <p>Reward: {{data.reward}}</p>
+          </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <img [src]="data.pictureUrl" class="w-50" alt="">
+          <button class="btn addBtn py-1 px-4 my-5 rounded-pill" [routerLink]="['/shipmentDetails',data.id]">See More Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+   --> 
+
+   <div class="row m-0 ">
+    <div class="col-md-2">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-md-9 py-2  px-5  ">
+  <app-search></app-search>
+ <div class="d-flex justify-content-between align-items-center py-5">
+  <!-- <div> <p class="bigTxt fw-bold"> All deals</p></div> -->
+<div>
+
+<button class="btn  filterBtn py-1 px-4 mx-3 rounded-pill"> <i class="fa-solid fa-arrow-up-wide-short"></i> Filter</button>
+</div>
+ </div>
+
+
+ <div class="row justify-content-between">
+  <ng-container *ngFor="let data of getshipment">
+    <div class="col-md-5 p-2 mb-5"*ngIf="message && data.userName === message">
+      <div class="boxShadow">
+        <h2>Shipment</h2>
+        <div class="d-flex justify-content-between align-items-center py-3">
+          <div>
+            <div class="d-flex">
+              <img src="../../../assets/Group 1000000746.png" alt="">
+              <div class="d-flex flex-column px-2 text-center">
+                <p class="fw-medium">{{data.userName}}</p>
+              </div>
+            </div>
+            <div class="p-3">
+              <p><span class=" fw-medium">From:</span>  {{data.fromCityName}}</p>
+              <p><span class=" fw-medium"> To:</span> To: {{data.toCityName}}</p>
+              <p><span class=" fw-medium"> Date Of Recieving:</span>{{ data.dateOfRecieving | date: 'dd/MM/yyyy' }}</p>
+              <p><span class=" fw-medium">Reward: </span> {{data.reward}}</p>
+            </div>
+          </div>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <img [src]="data.pictureUrl" class="w-50" alt="">
+            <button class="btn addBtn py-1 px-4 my-5 rounded-pill" [routerLink]="['/shipmentDetails',data.id]">See More Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+
+  </div>

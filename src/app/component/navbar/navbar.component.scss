@@ -1,0 +1,27 @@
+.Text_color{
+    color: #BEBEBF;
+}
+.Main_Tittle{
+    background: rgb(0,105,213);
+    background: linear-gradient(0deg, rgba(0,105,213,1) 0%, rgba(55,78,116,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.nav-footer a{
+color: #CD4242;
+}
+
+.links ul li,.nav-footer a{
+    cursor: pointer;
+}
+
+.activeLink{
+background-color:rgb(0,105,213) ;
+text-align: center;
+ 
+}
+
+.Navbg{
+    background-color:rgb(7, 33, 60) ;
+  
+}

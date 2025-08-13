@@ -1,0 +1,6 @@
+.backkground {
+  background-image: url(./../../../assets/Landing.png);
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+}/*# sourceMappingURL=signin.component.css.map */

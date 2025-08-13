@@ -1,0 +1,51 @@
+
+
+ <div class="row m-0 ">
+    <div class="col-md-2">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-md-9 py-2  px-5  ">
+  <app-search></app-search>
+ <div class="d-flex justify-content-between align-items-center py-5">
+    
+
+    <div class="col-md-8">
+<div>
+
+    <div class="d-flex py-4">
+        <img src="../../../assets/Group 1000000746.png" alt="">
+        <div class="d-flex flex-column px-2 text-center">
+          <h3 class=" fw-medium py-3" >{{shipmentDetails.userName}}</h3>
+        
+        </div>
+      </div>
+    <div class="fs-5 fw-medium py-2" > From : <span class="fs-5 fw-normal text-muted">{{shipmentDetails.fromCityName}}</span></div>
+    <div class="fs-5 fw-medium py-2" > To : <span class="fs-5  fw-normal text-muted">{{shipmentDetails.toCityName}}</span></div>
+     <div class="fs-5 fw-medium py-2" > product Name : <span class="fs-5  fw-normal text-muted">{{shipmentDetails.productName}}</span></div>
+     <div class="fs-5 fw-medium py-2" > product category : <span class="fs-5  fw-normal text-muted">{{shipmentDetails.categoryName}}</span></div>
+     <div class="fs-5 fw-medium py-2" > product Price : <span class="fs-5  fw-normal text-muted">{{shipmentDetails.productPrice}}</span></div>
+     <div class="fs-5 fw-medium py-2" > product Weight : <span class="fs-5  fw-normal text-muted ">{{shipmentDetails.productWeight}} KG</span></div>
+     <div class="fs-5 fw-medium"> Reward :<span class="fs-5  fw-normal text-muted">{{shipmentDetails.reward}}</span></div>
+     <div class="fs-5 fw-medium py-2" > Date Of Recieving : <span class="fs-5  fw-normal text-muted">{{shipmentDetails.dateOfRecieving | date:'dd/MM/yyyy'}}</span></div>
+    
+      
+</div>
+
+<button class="btn addBtn py-2 px-5 m-3 rounded-pill" type="submit"  >Send Request</button>
+
+    </div>
+
+    <div class="col-md-4">
+        <img [src]="shipmentDetails.pictureUrl" class="w-100" alt="">
+    </div>
+ 
+ </div>
+ 
+
+
+
+
+
+
+</div>
+</div>

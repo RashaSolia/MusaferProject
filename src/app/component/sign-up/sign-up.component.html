@@ -1,0 +1,151 @@
+<div class="container-fluid  ">
+    <div class="row ">
+      <div class="col-md-6 d-flex flex-column justify-content-center ">
+  
+        <div class="title p-3 text-center ">
+          <h1 class="fw-bold ">
+            Musafer
+          </h1>
+  
+        </div>
+  
+  
+        <div class="container  d-flex align-items-center justify-content-center ">
+          <div class="col-md-6">
+            <h3 class="py-3 ">Sign up</h3>
+  
+<form [formGroup]="resgisterForm" (ngSubmit)="signUp(resgisterForm)">         
+  <!-- <h2 class="alert alert-danger" *ngIf="errormassege.length>0">{{errormassege}}</h2> -->
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputname">User Name</label>
+                  <div class="input-group position-relative 
+                               px-2">
+                    <input type="text" class="form-control border-bottom bg-transparent my-3 rounded-0" id="inputUsername"
+                      placeholder="Enter your User name" formControlName="displayName">
+                    <div class="input-group-append">
+                        <i class="fa-regular fa-user" aria-hidden="true"></i>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+<div *ngIf="resgisterForm.get('displayName')?.errors&&resgisterForm.get('displayName')?.touched" class="text-danger">
+<p *ngIf="resgisterForm.get('displayName')?.getError('required')">    Invalid Input  </p>
+<p *ngIf="resgisterForm.get('displayName')?.getError('minlength')">User Name must be at least 4 characters long.</p>
+</div>
+
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputEmail1">Email</label>
+                  <div class="input-group position-relative 
+                               px-2">
+                    <input type="email" class="form-control border-bottom bg-transparent my-3 rounded-0" id="inputEmail"
+                      placeholder="Enter your email address" formControlName="email">
+                    <div class="input-group-append">
+  
+                      <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="resgisterForm.get('email')?.errors&&resgisterForm.get('email')?.touched" class="text-danger">
+                <p *ngIf="resgisterForm.get('email')?.getError('required')"> Invalid Input </p>
+                <p *ngIf="resgisterForm.get('email')?.getError('pattern')"> Invalid Email </p>
+ 
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputphone">Phone</label>
+                  <div class="input-group position-relative 
+                               px-2">
+                    <input type="tel" class="form-control border-bottom bg-transparent my-3 rounded-0" id="inputPhone"
+                      placeholder="Enter your phoneNumber" formControlName="phoneNumber">
+                    <div class="input-group-append">
+  
+                    
+                      <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="resgisterForm.get('phoneNumber')?.errors&&resgisterForm.get('phoneNumber')?.touched" class="text-danger">
+                <p *ngIf="resgisterForm.get('phoneNumber')?.getError('required')"> Invalid Input </p>    
+                <p *ngIf="resgisterForm.get('phoneNumber')?.getError('pattern')"> Phone number must be a 11-digit number. </p> 
+                </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputpassword">Password</label>
+                  <div class="input-group position-relative 
+                             px-2">
+                    <input type="password" class="form-control border-bottom bg-transparent my-3 rounded-0" id="inputPassword"
+                      placeholder="Enter your Password" formControlName="password">
+                    <div class="input-group-append">
+                      <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div *ngIf="resgisterForm.get('password')?.errors&&resgisterForm.get('password')?.touched" class="text-danger">
+                <p *ngIf="resgisterForm.get('password')?.getError('required')" > required input</p>
+                <p *ngIf="resgisterForm.get('password')?.getError('pattern')">must be
+                 <br>   * Start with a letter (either uppercase or lowercase).
+                 <br>       * Be between 6 and 9 characters in total.
+                 <br>    * Can only contain letters (A-Z or a-z) and numbers (0-9)
+                 </p>  
+                </div>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputrepassword">Confrim Password</label>
+                  <div class="input-group position-relative 
+                             px-2">
+                    <input type="password" class="form-control border-bottom bg-transparent my-3 rounded-0" id="inputrePassword"
+                      placeholder="Confrim your Password" formControlName="Repassword">
+                    <div class="input-group-append">
+                      <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="resgisterForm.get('Repassword')?.errors&&resgisterForm.get('Repassword')?.touched && resgisterForm.hasError('passwordMismatch')" class="text-danger">
+                <p *ngIf="resgisterForm.get('Repassword')?.getError('required')"> Invalid Input </p>
+                </div>
+                <div *ngIf="resgisterForm.hasError('passwordMismatch') && resgisterForm.get('Repassword')?.touched" class="text-danger">
+                  <p>Passwords do not match.</p>
+                </div>
+              <div class="form-row">
+                <div class="form-group col-md-12 text-center">
+                  <button [disabled]="resgisterForm.invalid" type="submit" class="btn my-3 w-100">  
+                    <span *ngIf="isLoading"><i class=" fa-solid fa-spinner fa-spin"></i></span> 
+                    Register</button>
+                </div>
+              </div>
+              <div id="successMessage" style="display: none;">
+                <p class="text-success text-center fw-bold"> Registration Successful</p>
+              </div>
+    
+              <div id="errorMessage" style="display: none;">
+                <p class="text-danger text-center fw-bold">THis Email is Already Exist</p>
+              </div>
+          
+              <div class="form-row">
+                <div class="form-group col-md-12 text-center link">
+                  <p> Already have an account? <span routerLink="/signin" >Sign in</span> </p>
+                </div>
+              </div>
+  
+            </form>
+          </div>
+        </div>
+       
+  
+      </div>
+  
+  
+      <div class="col-md-6">
+        <div class="backkground"></div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,32 @@
+*{
+    padding: 0px;
+    margin: 0px;
+box-sizing: border-box;
+}
+.smallTxt{
+    color: #909090;
+    font-size: 15px;
+}
+.bigTxt{
+    font-size: 25px;
+    color: #183866;
+}
+
+.filterBtn{
+  border-color: #007DFA;
+  color: #007DFA;
+}
+.sendBtn{
+    background-color: #E6E7E9;
+    color: black;  
+}
+.starIcon i{
+    color: #FFD700;
+}
+
+.boxShadow{
+    box-shadow: 1.5px 1.5px 1px 1.5px #F8F8F8;
+    background-color: white;
+
+}
+

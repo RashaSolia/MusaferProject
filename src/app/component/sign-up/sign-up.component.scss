@@ -1,0 +1,68 @@
+
+.backkground{
+    background-image: url(./../../../assets/Landing.png);
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+
+}
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: transparent;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem transparent;
+}
+
+.form-control {
+    border: none; /* Remove default border */
+  }
+  
+  .form-control.border-bottom {
+    border: none; /* Remove any existing border */
+    border-bottom: 2px solid black !important; /* Set bottom border to black */
+  }
+  .input-group-append i{
+  position: absolute;
+  left: 0;
+//   top: 0px;
+  bottom: 24px;
+//   background-color: bisque;
+  padding: 0px 1px;
+  }
+  .form-check-input {
+
+    border: var(--bs-border-width) solid black;
+   
+}
+.form-check-input:focus {
+    border-color: black;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem transparent;
+}
+
+.form-check-input:checked {
+    background-color: black;
+    border-color: black;
+}
+.ForgotPassword ,.form-check-label,.link{
+    cursor: pointer;
+}
+.form-row button{
+    background-color: #007DFA;
+    border-color: #007DFA;
+    color: #fff;
+}
+.title h1{
+    font-size: 35.5px;
+}
+.form-row p{
+    color: #969AB8;
+}
+
+.form-row p span{
+    color: #007DFA;
+}
+.samll-text{
+    font-size: 12px;
+}
